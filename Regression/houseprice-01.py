@@ -13,13 +13,24 @@ X_train = house_train[dims]
 y_train = house_train['SalePrice']
 
 lr1 = linear_model.LinearRegression()
+lr2 = linear_model.Ridge
+lr2 = linear_model.
+
 # fit call actual learning prrocess
 lr1.fit(X_train,y_train)
 lr1.coef_
 lr1.intercept_
+lr1.fit_intercept
 
 X_test = house_test[dims]
 house_test['SalePrice'] = lr1.predict(X_test)
 
+house_test.to_csv('house1.csv', columns=['Id','SalePrice'],index=False)
+
+
+
+
+Question 1 : 
+Question 2 : cat -> continuous conversion
 
 
