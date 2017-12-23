@@ -31,7 +31,7 @@ titanic_train.loc[titanic_train.Sex == 'female','Sex'] = 1
 
 # F E -----------------------------
 
-X_train = titanic_train[['Pclass','SibSp','Parch','Sex']]
+X_train = titanic_train[['Pclass','SibSp','Parch','Sex','Fare']]
 y_train = titanic_train['Survived']
 
 # ---------MB phase --------------------
@@ -47,6 +47,17 @@ tree_model1.fit(X_train, y_train)
 tree_model1.n_classes_    # classes in survived column
 tree_model1.classes_
 tree_model1.n_features_   # no of features used for MB
+
+
+
+tree_model1.score(X_train, y_train)
+
+y_train_pred = tree_model1.predict(X_train)
+
+from sklearn import metrics
+metrics.confusion_matrix(y_train,y_train_pred)
+
+#  accuracy --- Model error -- 
 
 
 # 3 predict 
