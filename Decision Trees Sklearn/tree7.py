@@ -34,6 +34,11 @@ titanic_train.info()
 titanic_train.loc[titanic_train['Age'].isnull() == True  , 'Age'] = titanic_train['Age'].mean()
 titanic_train.loc[titanic_train['Embarked'].isnull() == True  , 'Embarked'] = 'S'
 
+titanic_train['Name']
+
+Str1 = 'Suresh, Mr. studyml'
+Str1.split(',')
+
 titanic_train = pd.get_dummies(titanic_train,columns=['Sex','Embarked','Pclass'])
 
 # F E -----------------------------
