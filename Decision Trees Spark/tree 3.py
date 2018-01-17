@@ -78,4 +78,6 @@ df5_1.show()
 
 df5_1.select('PassengerId','prediction').coalesce(1).write.csv('c:/test5.csv')
 
+#  df5_1.select('PassengerId','prediction').toPandas().to_csv('c:/test5.csv')
+
 
