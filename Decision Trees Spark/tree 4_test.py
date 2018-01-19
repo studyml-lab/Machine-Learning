@@ -12,7 +12,7 @@ df2.count()
 df2.printSchema()
 df2.describe().show()
 df2.groupby('Embarked').count().sort('count',ascending=False).show()
-df3 = df2.select('Sex','Pclass','Survived','Embarked',df2.Fare.cast('double'),df2.Age.cast('double'))
+df3 = df2.select('Sex',df2.Pclass.cast('double'),df2.Survived.cast('double'),'Embarked',df2.Fare.cast('double'),df2.Age.cast('double'))
 df3.show()
 df3.printSchema()
 # -------------------------------------------
@@ -23,10 +23,6 @@ from pyspark.ml.feature import Imputer
 df3 = df3.na.fill({'Embarked':'S'})
 df3.describe().show()
 df3.groupby('Embarked').count().sort('count',ascending=False).first()[0]
-
-imput1 = Imputer(inputCols=['Age','Fare'], outputCols=['Age1','Fare1'])
-model111 = imput1.fit(df3)
-model111.surrogateDF.show()
 
 df3 = Imputer(inputCols=['Age','Fare'], outputCols=['Age1','Fare1']).fit(df3).transform(df3)
 
