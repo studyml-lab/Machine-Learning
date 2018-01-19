@@ -1,0 +1,8 @@
+Classification Problems 2
+
+1.	Problem: Ghouls goblins and ghosts https://www.kaggle.com/c/ghouls-goblins-and-ghosts-boo/data
+2.	Do the following tasks:
+a.	Apply random predictions/majority based prediction to each observation and find out how much accurate your predictions are by submitting to kaggle? 
+b.	Find out the pattern in the data manually and then hard-code the logic. Find out the accuracy by submitting to kaggle.
+c.	Find out the pattern in the data with machine learning approach using decision tree algorithm. Find out the accuracy after submitting to kaggle.
+

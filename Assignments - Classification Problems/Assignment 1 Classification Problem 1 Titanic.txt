@@ -1,0 +1,21 @@
+Classification Problems 1 Titanic
+Type Assignment
+ 
+ Problem Titanic Machine Learning from Disaster
+httpswww.kaggle.comctitanicdata
+Do the following tasks
+Apply random predictionsmajority based prediction to each observation and find out how much accurate your predictions are by submitting to kaggle
+Find out the patternrelationships in the data manually (by using excel). Apply any knowledge to test data files and find out the accuracy by submitting to kaggle.
+Through Python
+ Find out the pattern in the data manually and then hard-code the logic. Find out the accuracy by submitting to kaggle.
+Through ML
+Find out the pattern in the data with machine learning approach using decision tree algorithm. Find out the accuracy after submitting to kaggle.
+
+ 
+Advanced (later in classes)
+Add more columns
+1. Get the titles (from names) and try use it as feature
+2. Age group & relate with survived
+3. Family size --
+4. Cabins - 1st column (cabin yesno), 2nd column (A  B  C  N)
+

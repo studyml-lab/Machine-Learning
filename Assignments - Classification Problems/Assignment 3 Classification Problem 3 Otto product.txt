@@ -1,0 +1,12 @@
+Classification Problem 3
+ 
+Goto Kaggle.com, search for classification
+Otto Group Product Classification Challenge
+https://www.kaggle.com/c/otto-group-product-classification-challenge
+Download train data, test data, and sample submission files
+Use decision tree approach, build ml model
+Use Grid, cv, please use at least 20 combinations and select best parameters for building model
+Submit predictions to Kaggle and update me with rank/score (please take screenshot)
+
+
+Happy classification !
