@@ -58,6 +58,46 @@ training = df3
 training1 = df3
 training.show(truncate=False,n=5)
 
+from pyspark.ml.classification import DecisionTreeClassifier
+
+dt1 = DecisionTreeClassifier(featuresCol='Features',labelCol='Survived') 
+dtmodel1 = dt1.fit(training)
+predictions = dtmodel1.transform(training)
+predictions.select('Survived','rawPrediction','probability','prediction').show(n=5,truncate=False)
+
+from pyspark.ml.classification import GBTClassifier
+
+gbt1 = GBTClassifier(featuresCol='Features',labelCol='Survived',maxDepth=6,maxIter=20)
+gbtmodel1 = gbt1.fit(training)
+predictions = gbtmodel1.transform(training)
+
+PredictionsandLabels = predictions.select('prediction','Survived').rdd
+
+from pyspark.mllib.evaluation import MulticlassMetrics
+
+metric1 = MulticlassMetrics(PredictionsandLabels)
+metric1.accuracy
+print(metric1.confusionMatrix())
+# ------------------------------------------------------------------------------
+
+from pyspark.ml.tuning import CrossValidator, ParamGridBuilder
+from pyspark.ml.evaluation import BinaryClassificationEvaluator
+gbt2 = GBTClassifier(featuresCol='Features',labelCol='Survived')
+paramGrid = ParamGridBuilder().addGrid(gbt2.maxDepth,[4,6,8]).addGrid(gbt2.maxIter,[10,20]).build()
+evaluator1 = BinaryClassificationEvaluator(labelCol='Survived',rawPredictionCol='prediction')
+cv1 = CrossValidator(estimator=gbt2,
+               estimatorParamMaps=paramGrid,
+               evaluator=evaluator1,
+               numFolds=10)
+
+cvmodel1 = cv1.fit(training)
+
+cvmodel1.bestModel
+cvmodel1.avgMetrics
+cvmodel1.getEstimatorParamMaps
+
+
+
 # 1 choose approach
 
 from pyspark.ml.classification import RandomForestClassifier, GBTClassifier
