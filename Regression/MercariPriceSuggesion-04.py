@@ -7,20 +7,22 @@ import numpy as np
 
 
 #1. Undestand Business Problem
-##
+## 
 ##
 
 # 2. Data Collection
 ##
 ##
-house_train = pd.read_csv('e:/kaggle/homeprices/train.csv')
-house_test = pd.read_csv('e:/kaggle/homeprices/test.csv')
+house_train = pd.read_csv('e:/kaggle/Mercari price suggesion/train.tsv',sep='\t')
+house_test = pd.read_csv('e:/kaggle/Mercari price suggesion/test.tsv',sep='\t')
 
 # 3. EDA (EDA report)
 ##
 ## 
 house_train.shape
 house_train.info()
+house_train.head(5)
+
 
 house_test.shape
 house_test.info()
